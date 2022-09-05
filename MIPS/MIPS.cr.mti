@@ -1,0 +1,71 @@
+D:/programs/modelsim/Adder.v {1 {vlog -work work D:/programs/modelsim/Adder.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module Adder
+
+Top level modules:
+	Adder
+
+} {} {}} {D:/programs/modelsim/Program Counter .v} {1 {vlog -work work {D:/programs/modelsim/Program Counter .v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module Program_Counter
+
+Top level modules:
+	Program_Counter
+
+} {} {}} D:/programs/modelsim/MIPS.v {1 {vlog -work work D:/programs/modelsim/MIPS.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module MIPS
+
+Top level modules:
+	MIPS
+
+} {} {}} {D:/programs/modelsim/shift left twice.v} {1 {vlog -work work {D:/programs/modelsim/shift left twice.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module shift_left_twice
+
+Top level modules:
+	shift_left_twice
+
+} {} {}} {D:/programs/modelsim/Sign Extend .v} {1 {vlog -work work {D:/programs/modelsim/Sign Extend .v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module Sign_Extend
+
+Top level modules:
+	Sign_Extend
+
+} {} {}} {D:/programs/modelsim/Register File.v} {1 {vlog -work work {D:/programs/modelsim/Register File.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module Register_File
+
+Top level modules:
+	Register_File
+
+} {} {}} D:/programs/modelsim/ALU.v {1 {vlog -work work D:/programs/modelsim/ALU.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module ALU
+
+Top level modules:
+	ALU
+
+} {} {}} D:/programs/modelsim/MUX.v {1 {vlog -work work D:/programs/modelsim/MUX.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module MUX
+
+Top level modules:
+	MUX
+
+} {} {}} {D:/programs/modelsim/Instruction memory.v} {1 {vlog -work work {D:/programs/modelsim/Instruction memory.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module Instruction_memory
+
+Top level modules:
+	Instruction_memory
+
+} {} {}} {D:/programs/modelsim/Data Memory.v} {1 {vlog -work work {D:/programs/modelsim/Data Memory.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module Data_memory
+
+Top level modules:
+	Data_memory
+
+} {} {}}

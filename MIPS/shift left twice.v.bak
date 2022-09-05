@@ -1,0 +1,44 @@
+//-----------------------------------------------------------------------
+
+// Module: Shift left twice
+
+// File Name: shift_left_twice.V
+
+// Description: This block only shift the input to the left twice. 
+
+// Author: Omar Hossam El Din
+
+//----------------------------------------------------------------------
+
+module shift_left_twice #(
+
+//-----------------------------------------------------------------------
+//                    Parameters Decleration   
+//-----------------------------------------------------------------------
+
+ parameter IN_WIDTH   = 16,
+ parameter OUT_WIDTH   = 16
+
+
+)
+
+
+
+
+
+( 
+//-----------------------------------------------------------------------
+//                        Port Decleration   
+//-----------------------------------------------------------------------
+  
+  input wire  [DATA_WIDTH-1:0]      IN,
+  
+  output wire [DATA_WIDTH-1:0]    OUT
+  
+  );
+  
+  assign OUT = IN << 2;
+  
+  
+endmodule
+

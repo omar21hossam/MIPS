@@ -1,0 +1,155 @@
+//-----------------------------------------------------------------------
+
+// Module: Control Unit
+
+// File Name: Control Unit.V
+
+// Description: 
+
+// Author: Omar Hossam El Din
+
+//----------------------------------------------------------------------
+
+module Control_Unit #(
+  
+//-----------------------------------------------------------------------
+//                    Parameters Decleration   
+//-----------------------------------------------------------------------
+parameter FUNCT_WIDTH = 6,
+parameter OPCODE_WIDTH = 6,
+parameter ALUOP_WIDTH = 2,
+parameter ALU_CONTROL_WIDTH = 3
+
+)
+  
+  (
+//-----------------------------------------------------------------------
+//                        Port Decleration   
+//-----------------------------------------------------------------------
+input wire [FUNCT_WIDTH-1:0]       Funct,
+input wire [OPCODE_WIDTH-1:0]      Opcode,
+output reg                         memtoReg,
+output reg                         memWrite,
+output reg                         Branch,
+output reg                         ALUSrc,
+output reg                         RegDest,
+output reg                         RegWrite,
+output reg                         Jump,
+output reg [ALU_CONTROL_WIDTH-1:0] ALUControl
+
+  );
+  
+ reg [ALUOP_WIDTH-1:0]       ALUOp;
+  
+//-----------------------------------------------------------------------
+//                    Always Combinational Block   
+//-----------------------------------------------------------------------
+
+always@(*)
+
+begin
+  
+  case(ALUOp)
+    
+    'b00: begin
+                      ALUControl = 'b010;
+            end
+    
+    'b01: begin
+                      ALUControl = 'b100;
+            end
+    
+    'b10: begin
+                    case(Funct)
+                      
+                    'b10_0000:  ALUControl = 'b010;
+                    
+                    'b10_0010:  ALUControl = 'b100;
+                    
+                    'b10_1010:  ALUControl = 'b110;
+                    
+                    'b01_1100:  ALUControl = 'b101;
+                    
+                    default :   ALUControl = 'b000;
+                    
+                  endcase
+            end
+    
+    default:        ALUControl = 'b010;
+  
+endcase
+
+end
+
+//-----------------------------------------------------------------------
+//                    Always Combinational Block   
+//-----------------------------------------------------------------------
+always@(*)
+
+begin
+  //                Initial Values
+  
+  Jump      = 1'b0;
+  ALUOp     =  'b0;
+  memtoReg  = 1'b0;
+  memWrite  = 1'b0;
+  Branch    = 1'b0;
+  ALUSrc    = 1'b0;
+  RegDest   = 1'b0;
+  RegWrite  = 1'b0;
+  
+  
+  case(Opcode)
+    
+    'b10_0011
+:begin
+                          RegWrite = 1'b1;
+                          ALUSrc   = 1'b1;
+                          memtoReg = 1'b1; 
+                end
+    
+    'b10_1011
+:begin
+                          memWrite = 1'b1;
+                          ALUSrc   = 1'b1;
+                          memtoReg = 1'b1; 
+                end
+    
+    'b00_0000:  begin
+                          ALUOp    =  'b10;
+                          RegWrite = 1'b1;
+                          RegDest  = 1'b1; 
+                end
+    
+    'b00_1000:  begin
+                          RegWrite = 1'b1;
+                          ALUSrc   = 1'b1;
+                end
+    
+    'b00_0100:begin
+                          ALUOp    =  'b01;
+                          Branch   = 1'b1;
+                end
+    
+    'b00_0010:  begin
+                          Jump     =  'b10;
+                          
+                end
+                
+     default:  begin
+                          Jump      = 1'b0;
+                          ALUOp     =  'b0;
+                          memtoReg  = 1'b0;
+                          memWrite  = 1'b0;
+                          Branch    = 1'b0;
+                          ALUSrc    = 1'b0;
+                          RegDest   = 1'b0;
+                          RegWrite  = 1'b0;
+                          
+                end          
+    
+  endcase
+  
+end
+  
+endmodule
